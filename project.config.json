@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "touristappid",
-	"projectname": "udacity-wx-news",
+	"projectname": "wx-news",
 	"condition": {
 		"search": {
 			"current": -1,

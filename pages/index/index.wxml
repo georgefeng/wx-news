@@ -1,4 +1,11 @@
 <!--index.wxml-->
-<view>
-Hello world!
-</view>
+
+<scroll-view scroll-y='true'>
+    <view class='news-list'>
+        <view class="news-item" wx:for="{{newsList}}">
+            <view class='news-title'>{{item.title}}</view>
+            <view class='news-source'>{{item.source}}</view>
+            <image class='news-img' src='{{item.firstImage}}'></image>
+        </view>
+    </view>
+</scroll-view>
