@@ -1,5 +1,7 @@
 <!--index.wxml-->
 
+
+
 <scroll-view scroll-y='true'>
     <view class='news-list'>
         <view class="news-item" wx:for="{{newsList}}">
