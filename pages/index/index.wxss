@@ -1,4 +1,10 @@
 /**index.wxss**/
 .category-wrapper{
     display: flex;
+    margin-bottom: 20rpx;
+}
+.category-item{
+    width: 90rpx;
+    margin: 7rpx;
+
 }

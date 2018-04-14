@@ -22,7 +22,7 @@ Page({
         }],
         category: 'gn',
         categoryList: [
-            '国内', '国际', '财经', '娱乐', '军事', '体育', '其他',
+            {'en': 'gn', 'cn': '国内'}
         ]
     },
 
@@ -48,9 +48,9 @@ Page({
     setNewsList(result) {
 
         let newsList = []
-        for (let i = 0; i < 9; i += 1) {
+        for (let i = 0; i < result.length; i += 1) {
             newsList.push({
-                id: result[i].id,
+                id: result[i].id, //TODO: 值不存在的情况
                 title: result[i].title,
                 date: result[i].date,
                 source: result[i].source,
@@ -63,8 +63,29 @@ Page({
         console.log(result)
     },
 
+    setCategory(){
+        let categoryList = []
+        for(var key in categoryMap){
+            categoryList.push({
+                en: key,
+                cn: categoryMap[key]
+            })
+        }
+        this.setData({
+            categoryList: categoryList
+        })
+    },
+
+    onTapCategory(event){
+        this.setData({
+            category: event.currentTarget.dataset.category
+        })
+        this.getNews()
+        // console.log()
+    },
 
     onLoad() {
+        this.setCategory()
         this.getNews()
     }
 

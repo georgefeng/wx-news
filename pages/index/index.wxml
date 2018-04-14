@@ -2,7 +2,9 @@
 
   <view class='category-wrapper'>
     <view class="category-item" wx:for="{{categoryList}}">
-        <view class='category-tab'>{{item}}</view>
+        <view class='category-tab' bindtap="onTapCategory" data-category="{{item.en}}">
+            {{item.cn}}
+        </view>
     </view>
   </view>
 
