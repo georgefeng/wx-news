@@ -1,6 +1,10 @@
 <!--index.wxml-->
 
-
+  <view class='category-wrapper'>
+    <view class="category-item" wx:for="{{categoryList}}">
+        <view class='category-tab'>{{item}}</view>
+    </view>
+  </view>
 
 <scroll-view scroll-y='true'>
     <view class='news-list'>
