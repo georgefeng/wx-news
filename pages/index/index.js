@@ -84,6 +84,29 @@ Page({
         // console.log()
     },
 
+    getNewsDetail(newsID){
+        wx.request({
+            url: 'https://test-miniprogram.com/api/news/detail',
+            data: {
+                id: newsID
+            },
+            success: res => {
+                console.log(res.data.result)
+                let newsDetail = res.data.result
+            },
+            fail: res => {
+                console.log(res)
+            },
+        })
+    },
+
+    onTapNews(event){
+        let newsID = event.currentTarget.dataset.newsid
+        console.log()
+        this.getNewsDetail(newsID)
+        // console.log()
+    },
+
     onLoad() {
         this.setCategory()
         this.getNews()
