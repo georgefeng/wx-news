@@ -1,10 +1,21 @@
 /**index.wxss**/
 .category-wrapper{
     display: flex;
-    margin-bottom: 20rpx;
+    margin-bottom: 0rpx;
+    background-color: #B0C4DE;
 }
 .category-item{
     width: 90rpx;
     margin: 7rpx;
+    text-align: center;  
+}
+
+.category-tab{  
+    color: #555555;
+}
+
+.category-tab.active{  
+    color: #000000;
+    font-weight: 600;
 
 }

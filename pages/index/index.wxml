@@ -1,11 +1,13 @@
 <!-- index.wxml -->
 <view class="category-wrapper">
     <view class="category-item" wx:for="{{categoryList}}">
-        <view class="category-tab" bindtap="onTapCategory" data-category="{{item.en}}">
+        <view class="category-tab {{category==item.en?'active':''}}" bindtap="onTapCategory" data-category="{{item.en}}">
             {{item.cn}}
         </view>
     </view>
 </view>
+
+
 <scroll-view scroll-y="true">
     <view class="news-list">
         <view class="news-item" wx:for="{{newsList}}">

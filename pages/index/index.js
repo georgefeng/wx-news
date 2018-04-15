@@ -24,6 +24,7 @@ Page({
         categoryList: [
             { 'en': 'gn', 'cn': '国内' }
         ],
+        currentTab: 0
 
     },
 
@@ -80,6 +81,7 @@ Page({
     onTapCategory(event) {
         this.setData({
             category: event.currentTarget.dataset.category
+            
         })
         this.getNews()
     },
