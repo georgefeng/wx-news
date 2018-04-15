@@ -4,9 +4,10 @@
     "pages/detail/detail"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "black",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   }
 }

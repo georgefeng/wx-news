@@ -99,7 +99,16 @@ Page({
     onLoad() {
         this.setCategory()
         this.getNews()
-    }
+    },
+
+    // 下拉刷新
+    onPullDownRefresh() {
+      console.log("refresh executed!")
+
+      this.getNews(() => {
+        wx.stopPullDownRefresh()
+      })
+    },
 
 
 })

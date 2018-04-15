@@ -18,17 +18,17 @@ Page({
     })
 
 
-    this.getNewsDetail(this.data.newsID)
+    this.getNewsDetail()
     console.log('page detail. opt')
     console.log(opt)
     console.log(this.data.newsID)
 
   },
-  getNewsDetail(newsID) {
+  getNewsDetail(callback) {
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
       data: {
-        id: newsID
+        id: this.data.newsID
       },
       success: res => {
         console.log(res.data.result.content)
@@ -53,6 +53,9 @@ Page({
       fail: res => {
         console.log(res)
       },
+      complete: () => {
+        callback && callback()
+      }
     })
   },
 
@@ -116,9 +119,15 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  // 下拉刷新
+  onPullDownRefresh() {
+    console.log("refresh executed!")
 
+    this.getNewsDetail(() => {
+      wx.stopPullDownRefresh()
+    })
   },
+
 
   /**
    * 页面上拉触底事件的处理函数
