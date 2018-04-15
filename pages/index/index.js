@@ -22,8 +22,9 @@ Page({
         }],
         category: 'gn',
         categoryList: [
-            {'en': 'gn', 'cn': '国内'}
-        ]
+            { 'en': 'gn', 'cn': '国内' }
+        ],
+
     },
 
     getNews(callback) {
@@ -63,9 +64,9 @@ Page({
         console.log(result)
     },
 
-    setCategory(){
+    setCategory() {
         let categoryList = []
-        for(var key in categoryMap){
+        for (var key in categoryMap) {
             categoryList.push({
                 en: key,
                 cn: categoryMap[key]
@@ -76,7 +77,7 @@ Page({
         })
     },
 
-    onTapCategory(event){
+    onTapCategory(event) {
         this.setData({
             category: event.currentTarget.dataset.category
         })
@@ -84,26 +85,20 @@ Page({
         // console.log()
     },
 
-    getNewsDetail(newsID){
-        wx.request({
-            url: 'https://test-miniprogram.com/api/news/detail',
-            data: {
-                id: newsID
-            },
-            success: res => {
-                console.log(res.data.result)
-                let newsDetail = res.data.result
-            },
-            fail: res => {
-                console.log(res)
-            },
+    navToDetail(newsID) {
+        // this.setData({
+        //     id: newsID
+        //   })
+        // console.log(this.data.id)
+        wx.navigateTo({
+            url: '/pages/detail/detail?id=' + newsID
         })
     },
 
-    onTapNews(event){
+    onTapNews(event) {
         let newsID = event.currentTarget.dataset.newsid
         console.log()
-        this.getNewsDetail(newsID)
+        this.navToDetail(newsID)
         // console.log()
     },
 
