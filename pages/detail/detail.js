@@ -31,10 +31,22 @@ Page({
         id: newsID
       },
       success: res => {
-        console.log(res.data.result)
+        console.log(res.data.result.content)
+
+        this.setArticleNodes(res.data.result.content)
+
+        let articleNodes = [
+          [{
+            name: 'img',
+            attrs: {
+              src: 'http://inews.gtimg.com/newsapp_bt/0/3203388080/641',
+
+            },
+          }]
+        ]
         let newsDetail = res.data.result
         this.setData({
-          detail: newsDetail
+          detail: newsDetail,
         })
 
       },
@@ -44,6 +56,33 @@ Page({
     })
   },
 
+  // 设置新闻富文本
+  setArticleNodes(content) {
+    let nodes = []
+    for (let i = 0; i < content.length; i += 1) {
+      if (content[i].type === 'image') {
+        nodes.push([{
+          name: 'img',
+          attrs: {
+            src: content[i].src
+          }
+        }])
+      }
+      else {
+        nodes.push([{
+          name: content[i].type,
+          children: [{
+            type: 'text',
+            text: content[i].text
+          }]
+        }
+        ])
+      } // end if
+    } // end for
+    this.setData({
+      articleNodes: nodes
+    })
+  },
 
 
   /**

@@ -82,14 +82,9 @@ Page({
             category: event.currentTarget.dataset.category
         })
         this.getNews()
-        // console.log()
     },
 
     navToDetail(newsID) {
-        // this.setData({
-        //     id: newsID
-        //   })
-        // console.log(this.data.id)
         wx.navigateTo({
             url: '/pages/detail/detail?id=' + newsID
         })
@@ -99,7 +94,6 @@ Page({
         let newsID = event.currentTarget.dataset.newsid
         console.log()
         this.navToDetail(newsID)
-        // console.log()
     },
 
     onLoad() {
