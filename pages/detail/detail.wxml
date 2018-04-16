@@ -1,9 +1,14 @@
-<!--pages/detail/detail.wxml-->
-<view>标题{{detail.title}}</view>
-<view>日期{{detail.date}}</view>
-<view>来源{{detail.source}}</view>
-<view>阅读量{{detail.readCount}}</view>
-
-<view class="article-item" wx:for="{{articleNodes}}">
-  <rich-text nodes="{{item}}" bindtap="tap"></rich-text>
+<!-- pages/detail/detail.wxml -->
+<view class="page-detail">
+  <view class="title">标题{{detail.title}}</view>
+  <view class="info-wrapper">
+    <view class="time">{{detail.time}}</view>
+    <view class="source">{{detail.source}}</view>
+    <view class="count">阅读量 {{detail.readCount}}</view>
+  </view>
+  <view class="article-wrapper">
+    <view class="item" wx:for="{{articleNodes}}">
+      <rich-text nodes="{{item}}" bindtap="tap"></rich-text>
+    </view>
+  </view>
 </view>

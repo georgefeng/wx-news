@@ -1,5 +1,7 @@
 // pages/detail/detail.js
 
+var moment = require('../../libs/moment-with-locales.js');
+moment.locale('zh-cn');
 
 Page({
 
@@ -47,6 +49,7 @@ Page({
           }]
         ]
         let newsDetail = res.data.result
+        newsDetail.time = moment(newsDetail.date).fromNow()
         this.setData({
           detail: newsDetail,
         })
@@ -61,11 +64,6 @@ Page({
     })
   },
 
-  // 时间转换
-  convertTime(date){
-    let time = date.getTime()
-  },
-
 
   // 设置新闻富文本
   setArticleNodes(content) {
@@ -75,6 +73,9 @@ Page({
         nodes.push([{
           name: 'img',
           attrs: {
+            // 设置图像属性
+            // style: 'height: 600rpx; width: 400rpx;', 
+            class: 'article-img',
             src: content[i].src
           }
         }])
@@ -82,6 +83,9 @@ Page({
       else {
         nodes.push([{
           name: content[i].type,
+          attrs: {
+            class: 'article-text'
+          },
           children: [{
             type: 'text',
             text: content[i].text
