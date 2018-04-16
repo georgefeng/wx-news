@@ -10,7 +10,8 @@ const categoryMap = {
     'other': '其他',
 }
 
-var moment = require('../../libs/moment-with-locales.js');
+// 使用moment库转换时间
+var moment = require('../../libs/moment-with-locales.js'); 
 moment.locale('zh-cn');
 
 Page({
@@ -21,15 +22,14 @@ Page({
             source: '(Beta)环球资讯',
             date: '2018-04-06T11:28:25.000Z',
             firstImage: 'http://inews.gtimg.com/newsapp_bt/0/3199649303/641'
-        }],
-        category: 'gn',
+        }], // list 新闻列表
+        category: 'gn', // str 当前类别
         categoryList: [
             { 'en': 'gn', 'cn': '国内' }
-        ],
-        currentTab: 0
-
+        ], // dict 类别字典
     },
 
+    // 获取新闻列表
     getNews(callback) {
         wx.request({
             url: 'https://test-miniprogram.com/api/news/list',
@@ -49,15 +49,17 @@ Page({
 
         })
     },
+
+    // 更新新闻概要列表
     setNewsList(result) {
 
         let newsList = []
         for (let i = 0; i < result.length; i += 1) {
             newsList.push({
-                id: result[i].id, //TODO: 值不存在的情况
+                id: result[i].id, 
                 title: result[i].title, //TODO: 处理过长的标题
                 time: moment(result[i].date).fromNow(),
-                source: result[i].source,
+                source: result[i].source, //TODO: 值不存在的情况
                 firstImage: result[i].firstImage,
             })
         }
@@ -67,6 +69,7 @@ Page({
         console.log(result)
     },
 
+    // 设定顶部导航栏
     setCategory() {
         let categoryList = []
         for (var key in categoryMap) {
@@ -80,26 +83,24 @@ Page({
         })
     },
 
+    // 变更当前栏目
     onTapCategory(event) {
         this.setData({
             category: event.currentTarget.dataset.category
-            
+
         })
         this.getNews()
     },
 
-    navToDetail(newsID) {
+    // 跳转到详情页面
+    onTapNews(event) {
+        let newsID = event.currentTarget.dataset.newsid
         wx.navigateTo({
             url: '/pages/detail/detail?id=' + newsID
         })
     },
 
-    onTapNews(event) {
-        let newsID = event.currentTarget.dataset.newsid
-        console.log()
-        this.navToDetail(newsID)
-    },
-
+    // 首次加载
     onLoad() {
         this.setCategory()
         this.getNews()
@@ -107,11 +108,11 @@ Page({
 
     // 下拉刷新
     onPullDownRefresh() {
-      console.log("refresh executed!")
+        console.log("refresh executed!")
 
-      this.getNews(() => {
-        wx.stopPullDownRefresh()
-      })
+        this.getNews(() => {
+            wx.stopPullDownRefresh()
+        })
     },
 
 
