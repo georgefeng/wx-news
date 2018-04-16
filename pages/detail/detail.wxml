@@ -1,6 +1,6 @@
 <!-- pages/detail/detail.wxml -->
 <view class="page-detail">
-  <view class="title">标题{{detail.title}}</view>
+  <view class="title">{{detail.title}}</view>
   <view class="info-wrapper">
     <view class="time">{{detail.time}}</view>
     <view class="source">{{detail.source}}</view>
