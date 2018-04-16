@@ -10,6 +10,8 @@ const categoryMap = {
     'other': '其他',
 }
 
+var moment = require('../../libs/moment-with-locales.js');
+moment.locale('zh-cn');
 
 Page({
     data: {
@@ -51,10 +53,11 @@ Page({
 
         let newsList = []
         for (let i = 0; i < result.length; i += 1) {
+            let time = this.convertTime(result[i].date);
             newsList.push({
                 id: result[i].id, //TODO: 值不存在的情况
-                title: result[i].title,
-                date: result[i].date,
+                title: result[i].title, //TODO: 处理过长的标题
+                time: time,
                 source: result[i].source,
                 firstImage: result[i].firstImage,
             })
@@ -76,6 +79,11 @@ Page({
         this.setData({
             categoryList: categoryList
         })
+    },
+
+    convertTime(date){
+        let time=moment(date).fromNow()
+        return time
     },
 
     onTapCategory(event) {

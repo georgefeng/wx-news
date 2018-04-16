@@ -1,4 +1,6 @@
 // pages/detail/detail.js
+
+
 Page({
 
   /**
@@ -58,6 +60,12 @@ Page({
       }
     })
   },
+
+  // 时间转换
+  convertTime(date){
+    let time = date.getTime()
+  },
+
 
   // 设置新闻富文本
   setArticleNodes(content) {
