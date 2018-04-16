@@ -23,16 +23,20 @@
 .news-wrapper{
     display: flex;
     border-bottom: 3rpx solid rgba(0, 0, 0, 0.1);
-    margin-top: 10rpx;
+    margin-top: 20rpx;
     margin-left: 20rpx;
-    margin-bottom: 10rpx;
+    margin-bottom: 30rpx;
+    padding-bottom: 20rpx;
     margin-right: 20rpx;
+    height: 130rpx;
+
     
 }
 
 .news-wrapper .text{
     width: 500rpx;
     position: relative;
+    margin-left: 15rpx;
 }
 
 .news-wrapper .title{
