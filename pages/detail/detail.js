@@ -2,7 +2,7 @@
 
 
 // 使用moment库转换时间
-var moment = require('../../libs/moment-with-locales.js');
+var moment = require('../../libs/moment-cn.min.js');
 moment.locale('zh-cn');
 
 Page({
@@ -29,11 +29,10 @@ Page({
         id: this.data.newsID
       },
       success: res => {
-        console.log(res.data.result.content)
-
         // 设定文本概要信息
         let articleInfo = res.data.result
-        articleInfo.time = moment(articleInfo.date).fromNow()
+        articleInfo.time = moment(articleInfo.date).format('YYYY-MM-DD hh:mm')
+
         this.setData({
           articleInfo: articleInfo,
         })

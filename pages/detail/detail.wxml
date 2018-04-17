@@ -2,13 +2,13 @@
 <view class="page-detail">
   <view class="title">{{articleInfo.title}}</view>
   <view class="info-wrapper">
-    <view class="time">{{articleInfo.time}}</view>
+     <view class="time">{{articleInfo.time}}</view> 
     <view class="source">{{articleInfo.source}}</view>
     <view class="count">阅读量 {{articleInfo.readCount}}</view>
   </view>
   <view class="article-wrapper">
-    <view class="item" wx:for="{{articleNodes}}">
-      <rich-text nodes="{{item}}" bindtap="tap"></rich-text>
+    <view class="item" wx:for="{{articleNodes}}" wx:key='unique'>
+      <rich-text nodes="{{item}}"></rich-text>
     </view>
   </view>
 </view>

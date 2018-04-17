@@ -3,7 +3,13 @@
     display: flex;
     margin-bottom: 0rpx;
     background-color: #B0C4DE;
+    text-align: center;
+    padding-left: 18rpx;
+    top: 0%;
+    width: 100%;
+    height: 64rpx;
 }
+
 .category-item{
     width: 90rpx;
     margin: 7rpx;
@@ -17,8 +23,8 @@
 .category-tab.active{  
     color: #000000;
     font-weight: 600;
-
 }
+
 
 .news-wrapper{
     display: flex;
@@ -26,11 +32,10 @@
     margin-top: 20rpx;
     margin-left: 20rpx;
     margin-bottom: 30rpx;
-    padding-bottom: 20rpx;
     margin-right: 20rpx;
+    padding-bottom: 20rpx;
+    margin: 20rpx 20rpx 30rpx;
     height: 130rpx;
-
-    
 }
 
 .news-wrapper .text{
@@ -53,7 +58,6 @@
     bottom: 0rpx;
 }
 
-
 .news-wrapper .time{
     margin-right: 30rpx;
     font-size: 28rpx;
@@ -64,4 +68,3 @@
     height: 120rpx;
     width: 180rpx
 }
-
