@@ -29,10 +29,6 @@
 .news-wrapper{
     display: flex;
     border-bottom: 3rpx solid rgba(0, 0, 0, 0.1);
-    margin-top: 20rpx;
-    margin-left: 20rpx;
-    margin-bottom: 30rpx;
-    margin-right: 20rpx;
     padding-bottom: 20rpx;
     margin: 20rpx 20rpx 30rpx;
     height: 130rpx;
